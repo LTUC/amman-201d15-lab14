@@ -20,6 +20,14 @@ Cart.prototype.saveToLocalStorage = function () {
 
 Cart.prototype.removeItem = function (item) {
   // TODO: Fill in this instance method to remove one item from the cart.
+  let itemIndex;
+  for(let i=0; i<this.items.length; i++) {
+    if(this.items[i].product == item) {
+      itemIndex = i;
+      break;
+    }
+  }
+  this.items.splice(itemIndex, 1);
   // Note: You will have to decide what kind of parameter to pass in here!
 };
 
@@ -28,7 +36,7 @@ const CartItem = function (product, quantity) {
   this.quantity = quantity;
 };
 
-// Product contructor.
+// Product constructor.
 const Product = function (filePath, name) {
   this.filePath = filePath;
   this.name = name;
